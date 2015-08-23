@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/codedogfish/react-in-action#readme",
   "devDependencies": {
-    "bower": "^1.4.1"
+    "bower": "^1.4.1",
+    "browser-sync": "^2.8.2",
+    "gulp": "^3.9.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-react": "^3.0.1"
   }
 }
