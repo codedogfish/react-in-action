@@ -4,9 +4,12 @@ var config = require('./config.js');
 var gulp = require("gulp");
 var $ = require("gulp-load-plugins")();
 var browserSync = require("browser-sync");
+var notifier = require('node-notifier');
+
+//notifier.notify({title:'Gulp',message:'running...'});
 
 gulp.task('default', ['jsx'], function() {
-    gulp.src(config.SRC_PATH + '/*.html').pipe(gulp.dest(config.DIST_PATH));
+    gulp.src([config.SRC_PATH + '/*.html',config.SRC_PATH + '/*.json']).pipe(gulp.dest(config.DIST_PATH));
 });
 
 gulp.task('serve', ['default'], function() {
@@ -21,10 +24,15 @@ gulp.task('serve', ['default'], function() {
     gulp.watch(config.SRC_PATH + '/**/*.*', ['watch']);
 });
 
-gulp.task('watch', ['jsx'], browserSync.reload)
+gulp.task('watch', ['default'], browserSync.reload);
 
 gulp.task('jsx', function() {
     return gulp.src(config.SRC_PATH + '/**/*.jsx')
+        .pipe($.plumber(handleError))
         .pipe($.react())
         .pipe(gulp.dest(config.DIST_PATH));
-})
+});
+
+var handleError = {
+    errorHandler: $.notify.onError("Error: <%= error.message %>")
+};

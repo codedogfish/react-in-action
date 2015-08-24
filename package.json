@@ -21,6 +21,10 @@
     "browser-sync": "^2.8.2",
     "gulp": "^3.9.0",
     "gulp-load-plugins": "^0.10.0",
-    "gulp-react": "^3.0.1"
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-react": "^3.0.1",
+    "gulp-util": "^3.0.6",
+    "node-notifier": "^4.2.3"
   }
 }
