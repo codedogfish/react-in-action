@@ -1,0 +1,24 @@
+{
+  "name": "comment",
+  "version": "0.0.0",
+  "homepage": "https://github.com/codedogfish/react-in-action",
+  "authors": [
+    "codedogfish <jackcool1989@outlook.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.13.3",
+    "jquery": "1.10.0",
+    "showdown": "~1.2.3"
+  }
+}
