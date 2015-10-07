@@ -55,20 +55,43 @@ var CommentForm = React.createClass({
 
 // define a component
 var CommentBox = React.createClass({
+    // getInitialState will only invoke once to init the component state
+    getInitialState: function(){
+        return {data:[]};
+    },
+    //componentDidMount: function(){
+    //    $.ajax({
+    //        url: this.props.url,
+    //        dataType: 'json',
+    //        success:function(data){
+    //            this.setState({data:data});
+    //        }.bind(this),
+    //        error: function(){
+    //            console.error(this.props.url,status,err.toString());
+    //        }.bind(this)
+    //    });
+    //},
     // here is how to render the component
     render: function(){
+        // return (
+        //     <div className="commentBox">
+        //         <h1>Comments</h1>
+        //         <CommentList data={this.props.data}/>
+        //         <CommentForm />
+        //     </div>        
+        // );
         return (
             <div className="commentBox">
                 <h1>Comments</h1>
-                <CommentList data={this.props.data}/>
-                <CommentForm />
+                <CommentList data={this.state.data}/>
+                <CommentForm/>
             </div>        
         );
     }
 });
 // here is which element to render the component
 React.render(
-    <CommentBox data={data}/>,
+    <CommentBox url="http://localhost:5000/api/comments" data={data}/>,
     document.getElementById('content')
 );
 
