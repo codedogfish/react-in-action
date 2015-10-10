@@ -20,12 +20,14 @@ app.use(allowCrossDomain);
 app.get('/api/comments',function(req,res){
     fs.readFile('comments.json',function(err,data){
         res.setHeader('Cache-Control','no-cache');
+        console.log(JSON.parse(data));
         res.json(JSON.parse(data));
     });
 });
 
 app.post('/api/comments',function(req,res){
     fs.readFile('comments.json',function(err,data){
+        console.log(JSON.parse(data));
         var comments = JSON.parse(data);
         comments.push(req.body);
         fs.writeFile('comments.json',JSON.stringify(comments,null,4),function(err){
