@@ -6,9 +6,16 @@ var app = express();
 
 app.set('port',(process.env.PORT || 5000))
 
+var allowCrossDomain = function(req,res,next){
+    res.header('Access-Control-Allow-Origin','*');
+
+    next();
+}
+
 app.use('/',express.static(path.join(__dirname,'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(allowCrossDomain);
 
 app.get('/api/comments',function(req,res){
     fs.readFile('comments.json',function(err,data){
